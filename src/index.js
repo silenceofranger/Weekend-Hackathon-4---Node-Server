@@ -12,7 +12,7 @@ http
       res.end("Welcome to Dominos!");
     } else if (req.url === "/contact") {
       res.writeHead(200, { "Content-type": "application/json" });
-      res.end(obj);
+      res.end(JSON.stringify(obj));
     } else {
       res.writeHead(404);
       res.end();
