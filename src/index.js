@@ -1,10 +1,19 @@
-var http = require("http");
+const http = require("http");
 
-const httpServer = http.createServer(handleServer);
-
-
-function handleServer(req, res) {
-  
-}
-
-module.exports = httpServer;
+http.createServer(function (req, res) {
+    if(req.url === '/welcome')
+    {
+        res.write("Welcome to Dominos!");
+        res.end();
+    }
+    else if(req.url === '/contact')
+    {
+        res.write("{phone: '18602100000', email: 'guestcaredominos@jublfood.com'}")
+        res.end();
+    }
+    else
+    {
+        res.writeHead(404);
+        res.end();
+    }
+}).listen(8081);
